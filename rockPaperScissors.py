@@ -15,9 +15,9 @@ import random
 # ----------------------------------------------------------------------------------------------------------------------
 # Here you will write all of the functions (for later stages of the course
 # ----------------------------------------------------------------------------------------------------------------------
-
 # ----------------------------------------------------------------------------------------------------------------------
-# Here you write code :)
+
+
 # ----------------------------------------------------------------------------------------------------------------------
 """
 I'll give you the text inputs for this program, to make your lives a little easier.
@@ -44,10 +44,43 @@ print("GAME RULES: \n"
 
 # The game will run in a WHILE loop.
 # The loop is infinite, and only the user has the power to stop it (when they say they don't want to play anymore)
-while True:
-    """
-      This is the game's heart. You'll need to think and use everything we've learned so far to make this game work.
-      Remember Python's rules ( the ':' after a statement, the indentation with loops and statements..)
-      
-      """
-    pass
+game_on = True
+dict_game = {1: "rock", 2: "paper", 3: "scissors"}
+
+while game_on:
+    player_choice = int(input("choose your number:\n"))
+    x = random.randint(1, 3)
+    if  player_choice < 4 and player_choice > 0:
+        # same number checking
+        if player_choice == x:
+            print("teko teko press y below if you want to play again")
+        # player choose rock and computer choose scissors.
+        elif player_choice == 1 and player_choice + 2 == x:
+            print(f"{dict_game[1]} won")
+        # player choose paper and computer choose rock.
+        elif player_choice == 2 and x == 1:
+            print(f"{dict_game[2]} won")
+        # player choose scissors and computer choose paper.
+        elif player_choice - 1 == x and x == 2:
+            print(f"{dict_game[3]} won")
+        else:
+            print("computer won")
+    else:
+        print("mister player follow the instructions")
+        continue
+    re_game = input("press y if you want to continue and press n if you want to stop")
+    while re_game != "y" and re_game != "n":
+        re_game = input("press y if you want to continue and press n if you want to stop")
+    if re_game == "n":
+        print("nice match")
+        break
+
+
+
+
+
+
+
+
+
+
